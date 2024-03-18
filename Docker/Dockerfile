@@ -20,4 +20,6 @@ ENV PATH="${PATH}:/opt/gradle/gradle-8.6/bin"
 
 RUN mkdir /helloWorld
 WORKDIR /helloWorld
-RUN echo "dependencies { implementation "org.xerial:sqlite-jdbc:3.45.2.0" }" >> build.gradle
+COPY ./helloWorld .
+
+CMD ["gradle", "run"]
