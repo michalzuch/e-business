@@ -1,0 +1,4 @@
+version: '3.9'
+services:
+  hello_world:
+    image: hosiery00huskier/e-business-docker:1.0.0
