@@ -2,7 +2,7 @@ package models
 
 import play.api.libs.json._
 
-case class Product(id: Int, name: String, description: String, price: Double, stock: Int)
+case class Product(id: Int, name: String, description: String, price: Double, stock: Int, category: Int)
 
 object Product {
   implicit val productReads: Reads[Product] = Json.reads[Product]
