@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  app:
+    build: .
+    ports:
+      - '9000:9000'
+    networks:
+        - default
+
+  ngrok:
+    image: ngrok/ngrok
+    volumes:
+      - ./ngrok.yml:/etc/ngrok.yml
+    ports:
+      - '4040:4040'
+    env_file:
+      - .env
+    command:
+      - 'start'
+      - '--config'
+      - '/etc/ngrok.yml'
+      - 'app'
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
