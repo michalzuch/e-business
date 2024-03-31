@@ -1,5 +1,6 @@
 package com.example
 
+import com.example.plugins.getCategoriesNames
 import com.example.plugins.messageSenderModule
 import dev.kord.core.Kord
 import dev.kord.core.event.message.MessageCreateEvent
@@ -19,6 +20,12 @@ suspend fun main() {
         if (message.author?.isBot != false) return@on
         if (message.content != "!ping") return@on
         message.channel.createMessage("Pong!")
+    }
+
+    kord.on<MessageCreateEvent> {
+        if (message.author?.isBot != false) return@on
+        if (message.content != "!categories") return@on
+        message.channel.createMessage(getCategoriesNames())
     }
 
     embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
