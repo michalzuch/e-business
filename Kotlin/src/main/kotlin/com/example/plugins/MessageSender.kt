@@ -24,5 +24,13 @@ fun Application.messageSenderModule(kord: Kord) {
             val categoriesJson = Json.encodeToString(categories)
             call.respondText(categoriesJson, ContentType.Application.Json)
         }
+
+        get("/products") {
+            val request = call.receive<String>()
+            val (category) = Json.decodeFromString<CategoryRequest>(request)
+            val categoryId = categories.find { it.name.equals(category, ignoreCase = true) }?.id
+            val productsJson = Json.encodeToString(products.filter { it.category == categoryId })
+            call.respondText(productsJson, ContentType.Application.Json)
+        }
     }
 }

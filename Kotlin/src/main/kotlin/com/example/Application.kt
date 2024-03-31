@@ -1,7 +1,6 @@
 package com.example
 
-import com.example.plugins.getCategoriesNames
-import com.example.plugins.messageSenderModule
+import com.example.plugins.*
 import dev.kord.core.Kord
 import dev.kord.core.event.message.MessageCreateEvent
 import dev.kord.core.on
@@ -24,8 +23,28 @@ suspend fun main() {
 
     kord.on<MessageCreateEvent> {
         if (message.author?.isBot != false) return@on
-        if (message.content != "!categories") return@on
-        message.channel.createMessage(getCategoriesNames())
+        if (!message.content.startsWith("!")) return@on
+
+        if (message.content == "!categories") {
+            message.channel.createMessage(getCategoriesNames())
+        } else if (message.content.startsWith("!products")) {
+            val categoryName = message.content.removePrefix("!products").trim()
+            val categoryId = categories.find { it.name.equals(categoryName, ignoreCase = true) }?.id
+
+            if (categoryId != null) {
+                val productsString = getProductsDetails(categoryId)
+                message.channel.createMessage(productsString)
+            } else {
+                message.channel.createMessage("Category not found.")
+            }
+        } else {
+            message.channel.createMessage(
+                "**Available commands:** \n" +
+                        "`!categories` - return all categories\n" +
+                        "`!products category_name` - return products from selected category\n" +
+                        "`!help` - show this help message"
+            )
+        }
     }
 
     embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
