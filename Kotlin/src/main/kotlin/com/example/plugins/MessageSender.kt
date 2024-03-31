@@ -32,5 +32,25 @@ fun Application.messageSenderModule(kord: Kord) {
             val productsJson = Json.encodeToString(products.filter { it.category == categoryId })
             call.respondText(productsJson, ContentType.Application.Json)
         }
+
+        post("/slack/events") {
+            val params = call.receiveParameters()
+            val command = params["command"]
+            val text = params["text"]
+
+            val response = when (command) {
+                "/categories" -> getCategoriesNames()
+                "/products" -> {
+                    val categoryId = categories.find { it.name.equals(text, ignoreCase = true) }?.id
+                    if (categoryId != null) {
+                        getProductsDetails(categoryId)
+                    } else {
+                        ""
+                    }
+                }
+                else -> "Command not recognized"
+            }
+            call.respondText(response)
+        }
     }
 }
