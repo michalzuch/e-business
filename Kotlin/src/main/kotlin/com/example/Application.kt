@@ -17,12 +17,6 @@ suspend fun main() {
 
     kord.on<MessageCreateEvent> {
         if (message.author?.isBot != false) return@on
-        if (message.content != "!ping") return@on
-        message.channel.createMessage("Pong!")
-    }
-
-    kord.on<MessageCreateEvent> {
-        if (message.author?.isBot != false) return@on
         if (!message.content.startsWith("!")) return@on
 
         if (message.content == "!categories") {
@@ -59,4 +53,5 @@ suspend fun main() {
 
 fun Application.module(kord: Kord) {
     messageSenderModule(kord)
+    slackSenderModule()
 }

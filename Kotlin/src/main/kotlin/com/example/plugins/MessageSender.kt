@@ -28,11 +28,14 @@ fun Application.messageSenderModule(kord: Kord) {
         get("/products") {
             val request = call.receive<String>()
             val (category) = Json.decodeFromString<CategoryRequest>(request)
-            val categoryId = categories.find { it.name.equals(category, ignoreCase = true) }?.id
-            val productsJson = Json.encodeToString(products.filter { it.category == categoryId })
+            val productsJson = Json.encodeToString(products.filter { it.category == findCategoryIdByName(category) })
             call.respondText(productsJson, ContentType.Application.Json)
         }
+    }
+}
 
+fun Application.slackSenderModule() {
+    routing {
         post("/slack/events") {
             val params = call.receiveParameters()
             val command = params["command"]
@@ -41,13 +44,14 @@ fun Application.messageSenderModule(kord: Kord) {
             val response = when (command) {
                 "/categories" -> getCategoriesNames()
                 "/products" -> {
-                    val categoryId = categories.find { it.name.equals(text, ignoreCase = true) }?.id
+                    val categoryId = findCategoryIdByName(text.toString())
                     if (categoryId != null) {
                         getProductsDetails(categoryId)
                     } else {
                         ""
                     }
                 }
+
                 else -> "Command not recognized"
             }
             call.respondText(response)

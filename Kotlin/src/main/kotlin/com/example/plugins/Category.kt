@@ -14,3 +14,7 @@ val categories: List<Category> = listOf(
 fun getCategoriesNames(): String {
     return categories.joinToString(separator = "\n") { it.name }
 }
+
+fun findCategoryIdByName(name: String): Int? {
+    return categories.find { it.name.equals(name, ignoreCase = true) }?.id
+}
