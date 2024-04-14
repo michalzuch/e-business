@@ -12,6 +12,8 @@ Projects built during E-business classes at Jagiellonian University
 
 Docker Hub Image - [Link](https://hub.docker.com/r/hosiery00huskier/e-business-docker)
 
+https://github.com/michalzuch/e-business/assets/51276321/c0c66c25-725c-4e34-ae9b-026dc2c09a9c
+
 ---
 
 ## [Scala](https://github.com/michalzuch/e-business/tree/main/Scala)
@@ -22,6 +24,8 @@ Docker Hub Image - [Link](https://hub.docker.com/r/hosiery00huskier/e-business-d
 ✅ 4.5 Run the application on Docker (own image) and add a script to run the application via ngrok | [Commit](https://github.com/michalzuch/e-business/commit/52e0433a3328d7b2a705aa4d5f5a96ce0fe10486)  
 ✅ 5.0 Add CORS configuration for two hosts for CRUD methods | [Commit](https://github.com/michalzuch/e-business/commit/52e0433a3328d7b2a705aa4d5f5a96ce0fe10486)
 
+https://github.com/michalzuch/e-business/assets/51276321/8809dbf1-5a56-4188-9057-243149d4526a
+
 ---
 
 ## [Kotlin](https://github.com/michalzuch/e-business/tree/main/Kotlin)
@@ -31,3 +35,5 @@ Docker Hub Image - [Link](https://hub.docker.com/r/hosiery00huskier/e-business-d
 ✅ 4.0 Return a list of categories upon a specific user request | [Commit](https://github.com/michalzuch/e-business/commit/4e8e4a423395d7196d1e2c8502ca865f077cdca1)  
 ✅ 4.5 Return a list of products according to the requested category | [Commit](https://github.com/michalzuch/e-business/commit/2ca6f1075686530684dc4f776b05e9c2ecf1b622)  
 ✅ 5.0 Support one of the following platforms: Slack / Messenger / Webex / Skype | [Commit](https://github.com/michalzuch/e-business/commit/3cb5863da84114e63806f1b412a3ab0e25c428c6)
+
+https://github.com/michalzuch/e-business/assets/51276321/856b4583-74bd-413f-bdbb-7a76fe128d8d
