@@ -6,6 +6,7 @@ import (
 )
 
 func SetupRoutes(e *echo.Echo, db *gorm.DB) {
+	SetupCategoryRoutes(e, db)
 	SetupProductRoutes(e, db)
 	SetupBagRoutes(e, db)
 }

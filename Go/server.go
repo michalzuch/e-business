@@ -14,6 +14,11 @@ func main() {
 		panic("Failed to connect database")
 	}
 
+	err = db.AutoMigrate(&models.Category{})
+	if err != nil {
+		panic("Failed to migrate categories database")
+	}
+
 	err = db.AutoMigrate(&models.Product{})
 	if err != nil {
 		panic("Failed to migrate products database")

@@ -24,7 +24,7 @@ func CreateProduct(c echo.Context, db *gorm.DB) error {
 
 func ReadAllProducts(c echo.Context, db *gorm.DB) error {
 	var products []models.Product
-	result := db.Find(&products)
+	result := db.Preload("Category").Find(&products)
 	if result.Error != nil {
 		return c.JSON(http.StatusInternalServerError, "Failed to fetch products")
 	}
@@ -39,7 +39,7 @@ func ReadProduct(c echo.Context, db *gorm.DB) error {
 	}
 
 	var product models.Product
-	result := db.First(&product, id)
+	result := db.Preload("Category").First(&product, id)
 	if result.Error != nil {
 		return c.JSON(http.StatusNotFound, "Product not found")
 	}
@@ -54,7 +54,7 @@ func UpdateProduct(c echo.Context, db *gorm.DB) error {
 	}
 
 	var product models.Product
-	result := db.First(&product, id)
+	result := db.Preload("Category").First(&product, id)
 	if result.Error != nil {
 		return c.JSON(http.StatusNotFound, "Product not found")
 	}
