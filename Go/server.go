@@ -16,7 +16,12 @@ func main() {
 
 	err = db.AutoMigrate(&models.Product{})
 	if err != nil {
-		panic("Failed to migrate database")
+		panic("Failed to migrate products database")
+	}
+
+	err = db.AutoMigrate(&models.Bag{})
+	if err != nil {
+		panic("Failed to migrate bags database")
 	}
 
 	e := echo.New()

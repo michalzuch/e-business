@@ -76,6 +76,7 @@ func DeleteProduct(c echo.Context, db *gorm.DB) error {
 	if err != nil {
 		return c.JSON(http.StatusBadRequest, "Invalid ID format")
 	}
+
 	result := db.Delete(&models.Product{}, id)
 	if result.Error != nil {
 		return c.JSON(http.StatusInternalServerError, "Failed to delete product")
