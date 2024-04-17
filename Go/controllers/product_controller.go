@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"Go/models"
+	"Go/scopes"
 	"github.com/labstack/echo/v4"
 	"gorm.io/gorm"
 	"net/http"
@@ -24,7 +25,37 @@ func CreateProduct(c echo.Context, db *gorm.DB) error {
 
 func ReadAllProducts(c echo.Context, db *gorm.DB) error {
 	var products []models.Product
-	result := db.Preload("Category").Find(&products)
+	result := db.Scopes(scopes.WithCategory).Find(&products)
+	if result.Error != nil {
+		return c.JSON(http.StatusInternalServerError, "Failed to fetch products")
+	}
+
+	return c.JSON(http.StatusOK, products)
+}
+
+func ReadAllProductsGreaterThan(c echo.Context, db *gorm.DB) error {
+	var products []models.Product
+	value, err := strconv.Atoi(c.Param("value"))
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, "Invalid value format")
+	}
+
+	result := db.Scopes(scopes.WithCategory).Scopes(scopes.WithPriceGreaterThan(value)).Find(&products)
+	if result.Error != nil {
+		return c.JSON(http.StatusInternalServerError, "Failed to fetch products")
+	}
+
+	return c.JSON(http.StatusOK, products)
+}
+
+func ReadAllProductsLessThan(c echo.Context, db *gorm.DB) error {
+	var products []models.Product
+	value, err := strconv.Atoi(c.Param("value"))
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, "Invalid value format")
+	}
+
+	result := db.Scopes(scopes.WithCategory).Scopes(scopes.WithPriceLessThan(value)).Find(&products)
 	if result.Error != nil {
 		return c.JSON(http.StatusInternalServerError, "Failed to fetch products")
 	}
@@ -39,7 +70,7 @@ func ReadProduct(c echo.Context, db *gorm.DB) error {
 	}
 
 	var product models.Product
-	result := db.Preload("Category").First(&product, id)
+	result := db.Scopes(scopes.WithCategory).First(&product, id)
 	if result.Error != nil {
 		return c.JSON(http.StatusNotFound, "Product not found")
 	}
@@ -54,7 +85,7 @@ func UpdateProduct(c echo.Context, db *gorm.DB) error {
 	}
 
 	var product models.Product
-	result := db.Preload("Category").First(&product, id)
+	result := db.Scopes(scopes.WithCategory).First(&product, id)
 	if result.Error != nil {
 		return c.JSON(http.StatusNotFound, "Product not found")
 	}

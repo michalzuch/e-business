@@ -2,6 +2,7 @@ package controllers
 
 import (
 	"Go/models"
+	"Go/scopes"
 	"github.com/labstack/echo/v4"
 	"gorm.io/gorm"
 	"net/http"
@@ -23,28 +24,28 @@ func CreateCategory(c echo.Context, db *gorm.DB) error {
 }
 
 func ReadAllCategories(c echo.Context, db *gorm.DB) error {
-    var categories []models.Category
-    result := db.Preload("Products").Find(&categories)
-    if result.Error != nil {
-        return c.JSON(http.StatusInternalServerError, "Failed to fetch categories")
-    }
+	var categories []models.Category
+	result := db.Scopes(scopes.WithProduct).Find(&categories)
+	if result.Error != nil {
+		return c.JSON(http.StatusInternalServerError, "Failed to fetch categories")
+	}
 
-    return c.JSON(http.StatusOK, categories)
+	return c.JSON(http.StatusOK, categories)
 }
 
 func ReadCategory(c echo.Context, db *gorm.DB) error {
-    id, err := strconv.Atoi(c.Param("id"))
-    if err != nil {
-        return c.JSON(http.StatusBadRequest, "Invalid ID format")
-    }
+	id, err := strconv.Atoi(c.Param("id"))
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, "Invalid ID format")
+	}
 
-    var category models.Category
-    result := db.Preload("Products").First(&category, id)
-    if result.Error != nil {
-        return c.JSON(http.StatusNotFound, "Category not found")
-    }
+	var category models.Category
+	result := db.Scopes(scopes.WithProduct).First(&category, id)
+	if result.Error != nil {
+		return c.JSON(http.StatusNotFound, "Category not found")
+	}
 
-    return c.JSON(http.StatusOK, category)
+	return c.JSON(http.StatusOK, category)
 }
 
 func UpdateCategory(c echo.Context, db *gorm.DB) error {
@@ -54,7 +55,7 @@ func UpdateCategory(c echo.Context, db *gorm.DB) error {
 	}
 
 	var category models.Category
-	result := db.Preload("Products").First(&category, id)
+	result := db.Scopes(scopes.WithProduct).First(&category, id)
 	if result.Error != nil {
 		return c.JSON(http.StatusNotFound, "Category not found")
 	}
