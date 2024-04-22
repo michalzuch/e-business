@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
   app:
     build: .
@@ -14,8 +12,6 @@ services:
       - ./ngrok.yml:/etc/ngrok.yml
     ports:
       - '4040:4040'
-    env_file:
-      - .env
     command:
       - 'start'
       - '--config'
