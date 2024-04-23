@@ -1,0 +1,31 @@
+services:
+  frontend:
+    image: node:21.7.2
+    working_dir: /app
+    command: [ "sh", "-c", "npm install && npm run dev" ]
+    ports:
+      - "5173:5173"
+    volumes:
+      - frontend:/app
+    depends_on:
+      - backend
+    networks:
+      - default
+
+  backend:
+    build: ./backend
+    ports:
+      - "1323:1323"
+    networks:
+      - default
+
+volumes:
+  frontend:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: ./frontend
+
+networks:
+  default:
