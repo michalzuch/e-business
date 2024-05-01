@@ -1,13 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Product } from '../interfaces/Product'
 import ProductCard from './ProductCard'
 import useProducts from '../hooks/useProducts'
+import BagContext from '../contexts/BagContext'
 
-interface ProductsProps {
-  addToBag: (product: Product) => void
-}
-
-const Products: React.FC<ProductsProps> = ({ addToBag }) => {
+const Products: React.FC = () => {
+  const { addToBag } = useContext(BagContext)
   const { products, loading, error } = useProducts()
 
   if (loading) return <div>Loading...</div>

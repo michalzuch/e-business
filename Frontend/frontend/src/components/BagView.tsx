@@ -1,11 +1,12 @@
-import React from 'react'
-import { Bag } from '../interfaces/Bag'
+import React, { useContext } from 'react'
 import BagItem from './BagItem'
+import BagContext from '../contexts/BagContext'
 
-const BagView: React.FC<Bag> = ({ products }) => {
+const BagView: React.FC = () => {
+  const { bag } = useContext(BagContext)
   return (
     <div className='container'>
-      {products.map((product, index) => (
+      {bag.map((product, index) => (
         <BagItem
           key={index}
           id={index}

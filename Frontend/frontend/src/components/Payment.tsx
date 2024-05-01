@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import usePayment from '../hooks/usePayment'
+import BagContext from '../contexts/BagContext'
 
-interface PaymentProps {
-  resetBag: () => void
-}
-
-const Payment: React.FC<PaymentProps> = ({ resetBag }) => {
+const Payment: React.FC = () => {
+  const { resetBag } = useContext(BagContext)
   const [formData, setFormData] = useState({
     card_number: '',
     name: '',
