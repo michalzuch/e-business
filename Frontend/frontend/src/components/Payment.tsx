@@ -1,34 +1,28 @@
 import React, { useState } from 'react'
-import api from '../api/api'
+import usePayment from '../hooks/usePayment'
 
-const Payment = () => {
+interface PaymentProps {
+  resetBag: () => void
+}
+
+const Payment: React.FC<PaymentProps> = ({ resetBag }) => {
   const [formData, setFormData] = useState({
     card_number: '',
     name: '',
     expiration_date: '',
     cvv: '',
   })
-  const [paymentStatus, setPaymentStatus] = useState('')
-
-  const handlePayment = (formData: { card_number: string; name: string; expiration_date: string; cvv: string }) => {
-    api
-      .post('/payments', formData)
-      .then((response) => {
-        setPaymentStatus('Payment successful: ' + response.data['success'])
-      })
-      .catch((error) => {
-        setPaymentStatus('Payment failed: ' + error)
-      })
-  }
+  const { paymentStatus, handlePayment } = usePayment()
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target
     setFormData({ ...formData, [name]: value })
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    handlePayment(formData)
+    await handlePayment(formData)
+    resetBag()
   }
 
   return (
@@ -55,7 +49,7 @@ const Payment = () => {
 
         <input type='submit' value='Pay' />
       </form>
-      {paymentStatus && <div>{paymentStatus}</div>}
+      {paymentStatus.includes('true') && <div>{paymentStatus}</div>}
     </div>
   )
 }

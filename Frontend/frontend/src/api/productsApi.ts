@@ -1,4 +1,4 @@
-import { Product } from '../interfaces/productInterface'
+import { Product } from '../interfaces/Product'
 import api from './api'
 
 const fetchProducts = async (): Promise<Product[]> => {

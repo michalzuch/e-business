@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from 'react'
-import { Product } from '../interfaces/productInterface'
-import fetchProducts from '../api/productsApi'
+import React from 'react'
+import { Product } from '../interfaces/Product'
 import ProductCard from './ProductCard'
+import useProducts from '../hooks/useProducts'
 
-const Products: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([])
+interface ProductsProps {
+  addToBag: (product: Product) => void
+}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchProducts()
-      setProducts(data)
-    }
+const Products: React.FC<ProductsProps> = ({ addToBag }) => {
+  const { products, loading, error } = useProducts()
 
-    fetchData()
-  }, [])
+  if (loading) return <div>Loading...</div>
+  if (error) return <div>Error: {error}</div>
 
   return (
     <div className='container'>
       <ul>
         {products.map((product: Product) => (
           <ProductCard
+            key={product.id}
             id={product.id}
             name={product.name}
             description={product.description}
             price={product.price}
             stock={product.stock}
+            addToBag={() => addToBag(product)}
           />
         ))}
       </ul>
