@@ -48,6 +48,8 @@ https://github.com/michalzuch/e-business/assets/51276321/856b4583-74bd-413f-bdbb
 ✅ 4.5 Create a category model and establish a relationship between the category and the product | [Commit](https://github.com/michalzuch/e-business/commit/8de6f38a5aad25df417b86e81d1be6934829cb5e)  
 ✅ 5.0 Group queries into GORM scopes | [Commit](https://github.com/michalzuch/e-business/commit/80679b5d578da41efe02f9f04ed63ca1754ec12d)
 
+https://github.com/michalzuch/e-business/assets/51276321/d538d69c-f300-40ee-9775-051ed13c5abb
+
 ---
 
 ## [Frontend](https://github.com/michalzuch/e-business/tree/main/Frontend)
@@ -59,3 +61,5 @@ To create a client application using the React.js library, you need to build thr
 ✅ 4.0 Transfer data between components using React hooks | [Commit](https://github.com/michalzuch/e-business/commit/95fcace1294bb5827352bfafeb51423c0f39da44)  
 ✅ 4.5 Run the server and client applications on Docker using docker-compose | [Commit](https://github.com/michalzuch/e-business/commit/27b2fd4ae20dab2dd45d6856a9f29fa0a745de6e)  
 ✅ 5.0 Use Axios and add CORS headers | [Commit](https://github.com/michalzuch/e-business/commit/5397357845061f18854800a83e7b7f7f9879a6ba)
+
+https://github.com/michalzuch/e-business/assets/51276321/089f2b2d-5f1d-4b67-9c37-b9ef61f991c1
