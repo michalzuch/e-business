@@ -38,6 +38,8 @@ https://github.com/michalzuch/e-business/assets/51276321/8809dbf1-5a56-4188-9057
 
 https://github.com/michalzuch/e-business/assets/51276321/856b4583-74bd-413f-bdbb-7a76fe128d8d
 
+---
+
 ## [Go](https://github.com/michalzuch/e-business/tree/main/Go)
 
 ✅ 3.0 Create an app using the Echo framework that has a CRUD Product controller | [Commit](https://github.com/michalzuch/e-business/commit/9e657e743270067ce2784fb742a215c106b28e0d)  
@@ -45,3 +47,15 @@ https://github.com/michalzuch/e-business/assets/51276321/856b4583-74bd-413f-bdbb
 ✅ 4.0 Add a Bag model and create an appropriate endpoint | [Commit](https://github.com/michalzuch/e-business/commit/09c653f43a9ce954243f3690afe208bd3d1df79c)  
 ✅ 4.5 Create a category model and establish a relationship between the category and the product | [Commit](https://github.com/michalzuch/e-business/commit/8de6f38a5aad25df417b86e81d1be6934829cb5e)  
 ✅ 5.0 Group queries into GORM scopes | [Commit](https://github.com/michalzuch/e-business/commit/80679b5d578da41efe02f9f04ed63ca1754ec12d)
+
+---
+
+## [Frontend](https://github.com/michalzuch/e-business/tree/main/Frontend)
+
+To create a client application using the React.js library, you need to build three components: Products, Bag, and Payments. The Bag and Payments components should send data to the server application, while the Products component should download product data from the server application. The server application should be developed in one of three languages: Kotlin, Scala, or Go. All data transfers between the components should be handled using React hooks.
+
+✅ 3.0 Create Products and Payments components | [Commit](https://github.com/michalzuch/e-business/commit/5397357845061f18854800a83e7b7f7f9879a6ba)  
+✅ 3.5 Add a shopping bag along with the view, use routing | [Commit](https://github.com/michalzuch/e-business/commit/b4c01850654f2c01e6b9d677217d0e7d6cc9494a)  
+✅ 4.0 Transfer data between components using React hooks | [Commit](https://github.com/michalzuch/e-business/commit/95fcace1294bb5827352bfafeb51423c0f39da44)  
+✅ 4.5 Run the server and client applications on Docker using docker-compose | [Commit](https://github.com/michalzuch/e-business/commit/27b2fd4ae20dab2dd45d6856a9f29fa0a745de6e)  
+✅ 5.0 Use Axios and add CORS headers | [Commit](https://github.com/michalzuch/e-business/commit/5397357845061f18854800a83e7b7f7f9879a6ba)
