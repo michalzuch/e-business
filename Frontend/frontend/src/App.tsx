@@ -10,8 +10,10 @@ import BagContext from './contexts/BagContext'
 const App: React.FC = () => {
   const { bag, addToBag, resetBag } = useBag()
 
+  const contextValue = React.useMemo(() => ({ bag, addToBag, resetBag }), [bag, addToBag, resetBag])
+
   return (
-    <BagContext.Provider value={{ bag, addToBag, resetBag }}>
+    <BagContext.Provider value={contextValue}>
       <Router>
         <Navbar bagCount={bag.length} />
         <Routes>

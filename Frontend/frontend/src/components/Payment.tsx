@@ -19,7 +19,7 @@ const Payment: React.FC = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    await handlePayment(formData)
+    handlePayment(formData)
     resetBag()
   }
 
@@ -28,20 +28,16 @@ const Payment: React.FC = () => {
       <form onSubmit={handleSubmit}>
         <fieldset>
           <label>
-            Card number
-            <input name='card_number' placeholder='1234 1234 1234 1234' onChange={handleInputChange} />
+            Card number <input name='card_number' placeholder='1234 1234 1234 1234' onChange={handleInputChange} />
           </label>
           <label>
-            Name
-            <input name='name' placeholder='Your Name' onChange={handleInputChange} />
+            Name <input name='name' placeholder='Your Name' onChange={handleInputChange} />
           </label>
           <label>
-            Expiration date
-            <input name='expiration_date' placeholder='01/01' onChange={handleInputChange} />
+            Expiration date <input name='expiration_date' placeholder='01/01' onChange={handleInputChange} />
           </label>
           <label>
-            CVV
-            <input name='cvv' placeholder='123' type='password' onChange={handleInputChange} />
+            CVV <input name='cvv' placeholder='123' type='password' onChange={handleInputChange} />
           </label>
         </fieldset>
 

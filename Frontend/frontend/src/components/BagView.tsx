@@ -6,10 +6,10 @@ const BagView: React.FC = () => {
   const { bag } = useContext(BagContext)
   return (
     <div className='container'>
-      {bag.map((product, index) => (
+      {bag.map((product) => (
         <BagItem
-          key={index}
-          id={index}
+          key={product.id}
+          id={product.id}
           name={product.name}
           description={product.description}
           price={product.price}
