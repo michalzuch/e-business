@@ -1,0 +1,36 @@
+#!/bin/sh
+
+REPO_ROOT=$(git rev-parse --show-toplevel)
+GOLANGCI_LINT_PATH="/opt/homebrew/bin/golangci-lint"
+
+cd "$REPO_ROOT"
+
+if [ ! -x "$GOLANGCI_LINT_PATH" ]; then
+  echo -e "\033[41mGoLang Lint not installed\033[0m"
+  exit 1
+fi
+
+STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep ".go\{0,1\}$")
+
+echo $STAGED_FILES
+
+echo "Linting $(echo "$STAGED_FILES" | wc -l) files"
+
+if [ -z "$STAGED_FILES" ]; then
+  exit 0
+fi
+
+"${GOLANGCI_LINT_PATH}" run ${STAGED_FILES}
+
+GOLANGCI_LINT_EXIT=$?
+
+git add "${STAGED_FILES[@]}"
+
+if [ $GOLANGCI_LINT_EXIT -eq 0 ]; then
+  echo "\033[42mOK\033[0m"
+else
+  echo "\033[41m FAIL \033[0m"
+  exit 1
+fi
+
+exit $?
