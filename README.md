@@ -63,3 +63,25 @@ To create a client application using the React.js library, you need to build thr
 ✅ 5.0 Use Axios and add CORS headers | [Commit](https://github.com/michalzuch/e-business/commit/5397357845061f18854800a83e7b7f7f9879a6ba)
 
 https://github.com/michalzuch/e-business/assets/51276321/089f2b2d-5f1d-4b67-9c37-b9ef61f991c1
+
+---
+
+## [Tests](https://github.com/michalzuch/e-business/tree/main/Tests)
+
+✅ 3.0 Create 20 test cases in CypressJS | [Commit](https://github.com/michalzuch/e-business/commit/8d3622197b4d605e5872095a61cf774adc4e9eb9)  
+✅ 3.5 Extend the functional tests to include at least 50 assertions | [Commit](https://github.com/michalzuch/e-business/commit/8d3622197b4d605e5872095a61cf774adc4e9eb9)  
+✅ 4.0 Create unit tests for a previous project, ensuring a minimum of 50 assertions | [Commit](https://github.com/michalzuch/e-business/commit/80fd138435e42a483a786e015ecf75abf17d6708)  
+❌ 4.5 Add API tests to cover all endpoints, including at least one negative scenario per endpoint
+❌ 5.0 Run functional tests on Browserstack
+
+---
+
+## [Sonar](https://github.com/michalzuch/e-business/tree/main/Sonar)
+
+Add the client and server application projects to [Sonar](https://sonarcloud.io/) in the cloud version. Improve the applications to achieve 0 bugs, 0 vulnerabilities, and 0 security errors. Additionally, include Sonar widgets in the project's README with the results.
+
+✅ 3.0 Add a linter for the server application code in Git hooks | [Commit](https://github.com/michalzuch/e-business/commit/08fb8d35e0c6ff0391b066548a709df19ac483b5)  
+✅ 3.5 Eliminate all bugs in the server code | [Commit](https://github.com/michalzuch/e-business/commit/93acdfae161cc044e26a47e436fcfb8dc17d5ce7)  
+✅ 4.0 Eliminate all code smells in the server code | [Commit](https://github.com/michalzuch/e-business/commit/93acdfae161cc044e26a47e436fcfb8dc17d5ce7)  
+✅ 4.5 Eliminate all vulnerabilities and security issues in the server code | [Commit](https://github.com/michalzuch/e-business/commit/93acdfae161cc044e26a47e436fcfb8dc17d5ce7)  
+✅ 5.0 Eliminate all code smells in the client code | [Commit](https://github.com/michalzuch/e-business/commit/ab0afa818995fb2da418de78f00ee321a9f9307d)
