@@ -82,3 +82,7 @@ input[type='submit']:hover,
 button[type='submit']:hover {
   background-color: #61dafb;
 }
+
+button {
+  margin: 1rem;
+}

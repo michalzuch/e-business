@@ -4,7 +4,12 @@ import Button from './Button'
 const HomePage: React.FC = () => {
   return (
     <>
-      {!sessionStorage.getItem('token') && <Button name='Login' to={'/login'} />}
+      {!sessionStorage.getItem('token') && (
+        <>
+          <Button name='Login' to={'/login'} />
+          <Button name='Register' to={'/register'} />
+        </>
+      )}
       {sessionStorage.getItem('token') && (
         <div>
           <p>Hi! You are logged in</p>
