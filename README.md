@@ -71,7 +71,7 @@ https://github.com/michalzuch/e-business/assets/51276321/089f2b2d-5f1d-4b67-9c37
 ✅ 3.0 Create 20 test cases in CypressJS | [Commit](https://github.com/michalzuch/e-business/commit/8d3622197b4d605e5872095a61cf774adc4e9eb9)  
 ✅ 3.5 Extend the functional tests to include at least 50 assertions | [Commit](https://github.com/michalzuch/e-business/commit/8d3622197b4d605e5872095a61cf774adc4e9eb9)  
 ✅ 4.0 Create unit tests for a previous project, ensuring a minimum of 50 assertions | [Commit](https://github.com/michalzuch/e-business/commit/80fd138435e42a483a786e015ecf75abf17d6708)  
-❌ 4.5 Add API tests to cover all endpoints, including at least one negative scenario per endpoint
+❌ 4.5 Add API tests to cover all endpoints, including at least one negative scenario per endpoint  
 ❌ 5.0 Run functional tests on Browserstack
 
 ---
@@ -85,3 +85,17 @@ Add the client and server application projects to [Sonar](https://sonarcloud.io/
 ✅ 4.0 Eliminate all code smells in the server code | [Commit](https://github.com/michalzuch/e-business/commit/93acdfae161cc044e26a47e436fcfb8dc17d5ce7)  
 ✅ 4.5 Eliminate all vulnerabilities and security issues in the server code | [Commit](https://github.com/michalzuch/e-business/commit/93acdfae161cc044e26a47e436fcfb8dc17d5ce7)  
 ✅ 5.0 Eliminate all code smells in the client code | [Commit](https://github.com/michalzuch/e-business/commit/ab0afa818995fb2da418de78f00ee321a9f9307d)
+
+---
+
+## [OAuth](https://github.com/michalzuch/e-business/tree/main/OAuth)
+
+Configure the OAuth2 client. Store user data and the token on the server database. Send a new token, distinct from the provider's, to the client (React). Use the session mechanism or another suitable method. Avoid creating clients directly on the React side, excluding the server application from communication, such as using auth0.
+
+Communication model: React - Server - Supplier - Server (via return uri) - React
+
+✅ 3.0 Login via server application (without Oauth2) | [Commit](https://github.com/michalzuch/e-business/commit/f8a7a7cd450877b4b465ef10e51d4dba40cba518)  
+✅ 3.5 Registration via server application (without Oauth2) | [Commit](https://github.com/michalzuch/e-business/commit/b335537408ba9e76882d031045a3e22fc7207ba5)  
+❌ 4.0 Login via Google OAuth2  
+❌ 4.5 Login via Facebook / Github OAuth2  
+❌ 5.0 Save OAuth2 credentials on the server side
