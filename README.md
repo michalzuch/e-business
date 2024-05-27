@@ -74,6 +74,8 @@ https://github.com/michalzuch/e-business/assets/51276321/089f2b2d-5f1d-4b67-9c37
 ❌ 4.5 Add API tests to cover all endpoints, including at least one negative scenario per endpoint  
 ❌ 5.0 Run functional tests on Browserstack
 
+https://github.com/michalzuch/e-business/assets/51276321/bdfc12ac-e7ad-4121-bd92-c9546915ab21
+
 ---
 
 ## [Sonar](https://github.com/michalzuch/e-business/tree/main/Sonar)
@@ -85,6 +87,8 @@ Add the client and server application projects to [Sonar](https://sonarcloud.io/
 ✅ 4.0 Eliminate all code smells in the server code | [Commit](https://github.com/michalzuch/e-business/commit/93acdfae161cc044e26a47e436fcfb8dc17d5ce7)  
 ✅ 4.5 Eliminate all vulnerabilities and security issues in the server code | [Commit](https://github.com/michalzuch/e-business/commit/93acdfae161cc044e26a47e436fcfb8dc17d5ce7)  
 ✅ 5.0 Eliminate all code smells in the client code | [Commit](https://github.com/michalzuch/e-business/commit/ab0afa818995fb2da418de78f00ee321a9f9307d)
+
+https://github.com/michalzuch/e-business/assets/51276321/9e4a3b16-5fad-49c3-ac06-2c7654ed0d25
 
 ---
 
