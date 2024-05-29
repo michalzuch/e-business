@@ -1,13 +1,8 @@
-import axios from 'axios'
-import { AuthorizationCode, AuthorizationTokenConfig } from 'simple-oauth2'
+import { AuthorizationCode } from 'simple-oauth2'
 import { Request as ExpressRequest, Response as ExpressResponse } from 'express'
-import * as jwt from 'jsonwebtoken'
-import * as dotenv from 'dotenv'
+import { oauthLogin, oauthLoginCallback } from '../services/oauthControllerService'
 
 const GOOGLE_CALLBACK = 'http://localhost:3000/api/google/callback'
-
-dotenv.config()
-const secretKey: string = process.env.SECRET_KEY || ''
 
 const googleOAuth = {
   client: {
@@ -24,38 +19,11 @@ const googleOAuth = {
 const googleClient = new AuthorizationCode(googleOAuth)
 
 function googleLogin(_: ExpressRequest, res: ExpressResponse) {
-  const authorizationUri = googleClient.authorizeURL({
-    redirect_uri: GOOGLE_CALLBACK,
-    scope: 'profile',
-  })
-
-  res.redirect(authorizationUri)
+  oauthLogin(_, res, googleClient, GOOGLE_CALLBACK)
 }
 
 async function googleLoginCallback(req: ExpressRequest, res: ExpressResponse) {
-  const authTokenConfig: AuthorizationTokenConfig = {
-    code: req.query.code as string,
-    redirect_uri: GOOGLE_CALLBACK,
-  }
-
-  try {
-    const accessToken = await googleClient.getToken(authTokenConfig)
-    const user = await axios
-      .get('https://www.googleapis.com/oauth2/v2/userinfo', {
-        headers: {
-          Authorization: 'Bearer ' + accessToken.token.access_token,
-        },
-      })
-      .then((res) => res.data)
-      .catch((error) => {
-        console.error(`Failed to fetch user data: ${error}`)
-      })
-
-    const token = jwt.sign(user.id, secretKey)
-    return res.cookie('token', token).redirect('http://localhost:5173')
-  } catch (error) {
-    return res.json('Google OAuth failed').status(500)
-  }
+  oauthLoginCallback(req, res, 'Google', googleClient, GOOGLE_CALLBACK, 'https://www.googleapis.com/oauth2/v2/userinfo')
 }
 
 export { googleLogin, googleLoginCallback }

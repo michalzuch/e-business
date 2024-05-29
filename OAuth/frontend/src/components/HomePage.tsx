@@ -15,6 +15,11 @@ const HomePage: React.FC = () => {
             className='google-button'
             action={() => (window.location.href = 'http://localhost:3000/api/google')}
           />
+          <ActionButton
+            name='GitHub'
+            className='github-button'
+            action={() => (window.location.href = 'http://localhost:3000/api/github')}
+          />
         </div>
       )}
       {Cookies.get('token') && (
