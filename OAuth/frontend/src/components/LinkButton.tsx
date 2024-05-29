@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-interface ButtonProps {
+interface LinkButtonProps {
   name: string
   to: string
 }
 
-const Button: React.FC<ButtonProps> = ({ name, to }) => {
+const LinkButton: React.FC<LinkButtonProps> = ({ name, to }) => {
   return (
     <Link to={to}>
       <button>{name}</button>
@@ -14,4 +14,4 @@ const Button: React.FC<ButtonProps> = ({ name, to }) => {
   )
 }
 
-export default Button
+export default LinkButton

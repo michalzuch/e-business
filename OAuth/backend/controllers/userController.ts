@@ -4,7 +4,7 @@ import { Response as ExpressResponse } from 'express'
 import LoginRequest from '../models/LoginRequest'
 import RegisterRequest from '../models/RegisterRequest'
 
-const secretKey: string = 'superSecretKey'
+const secretKey: string = process.env.SECRET_KEY || ''
 
 function login(req: LoginRequest, res: ExpressResponse<any>) {
   const { email, password } = req.body

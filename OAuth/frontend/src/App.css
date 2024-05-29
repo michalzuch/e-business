@@ -66,23 +66,24 @@ select:focus {
   box-shadow: 0 0 2em #646cffaa;
 }
 
-input[type='submit'],
-button[type='submit'] {
-  padding: 1em 2em;
+button {
+  margin: 1rem;
+}
+
+.google-button {
   margin-bottom: 1em;
   border: none;
   border-radius: 0.5em;
-  background-color: #646cff;
+  background-color: #4285f4;
   color: #fff;
   cursor: pointer;
   transition: background-color 300ms;
 }
 
-input[type='submit']:hover,
-button[type='submit']:hover {
-  background-color: #61dafb;
+.google-button:hover {
+  background-color: #dd4b39;
 }
 
-button {
-  margin: 1rem;
+.buttons {
+  display: inline-flex;
 }

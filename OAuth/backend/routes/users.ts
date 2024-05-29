@@ -13,4 +13,4 @@ router.post('/register', (req: RegisterRequest, res: ExpressResponse) => {
   register(req, res)
 })
 
-export default router
+export { router }

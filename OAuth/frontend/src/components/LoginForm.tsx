@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Cookies from 'js-cookie'
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState('')
@@ -25,7 +26,7 @@ const LoginForm: React.FC = () => {
       .then((result) => {
         if (result.status === 200) {
           setMessage('')
-          sessionStorage.setItem('token', result.body.token)
+          Cookies.set('token', result.body.token)
           window.location.replace('/')
         } else {
           setMessage(result.body.message)

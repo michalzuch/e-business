@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Button from './Button'
+import Button from './LinkButton'
 
 const RegisterForm: React.FC = () => {
   const [username, setUsername] = useState('')

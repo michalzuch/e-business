@@ -1,21 +1,28 @@
 import React from 'react'
-import Button from './Button'
+import LinkButton from './LinkButton'
+import Cookies from 'js-cookie'
+import ActionButton from './ActionButton'
 
 const HomePage: React.FC = () => {
   return (
     <>
-      {!sessionStorage.getItem('token') && (
-        <>
-          <Button name='Login' to={'/login'} />
-          <Button name='Register' to={'/register'} />
-        </>
+      {!Cookies.get('token') && (
+        <div className='buttons'>
+          <LinkButton name='Login' to={'/login'} />
+          <LinkButton name='Register' to={'/register'} />
+          <ActionButton
+            name='Google'
+            className='google-button'
+            action={() => (window.location.href = 'http://localhost:3000/api/google')}
+          />
+        </div>
       )}
-      {sessionStorage.getItem('token') && (
+      {Cookies.get('token') && (
         <div>
           <p>Hi! You are logged in</p>
           <button
             onClick={() => {
-              sessionStorage.removeItem('token')
+              Cookies.remove('token')
               window.location.reload()
             }}
           >

@@ -1,6 +1,6 @@
 import cors = require('cors')
 import express = require('express')
-import router from './routes/users'
+import router from './routes/routes'
 
 const app = express()
 const PORT = 3000
