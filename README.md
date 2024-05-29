@@ -100,6 +100,6 @@ Communication model: React - Server - Supplier - Server (via return uri) - React
 
 ✅ 3.0 Login via server application (without Oauth2) | [Commit](https://github.com/michalzuch/e-business/commit/f8a7a7cd450877b4b465ef10e51d4dba40cba518)  
 ✅ 3.5 Registration via server application (without Oauth2) | [Commit](https://github.com/michalzuch/e-business/commit/b335537408ba9e76882d031045a3e22fc7207ba5)  
-❌ 4.0 Login via Google OAuth2  
-❌ 4.5 Login via Facebook / Github OAuth2  
-❌ 5.0 Save OAuth2 credentials on the server side
+✅ 4.0 Login via Google OAuth2 | [Commit](https://github.com/michalzuch/e-business/commit/ea0d220875eabb0a9bd574a6647682c4d4803fc0)  
+✅ 4.5 Login via Facebook / Github OAuth2 | [Commit](https://github.com/michalzuch/e-business/commit/f1e484d8455d37ad9e6f2855842a1f3e1256b4d6)  
+✅ 5.0 Save OAuth2 credentials on the server side | [Commit](https://github.com/michalzuch/e-business/commit/e8d123c1f8cbb3998734afb6204681c1bc1299f3)
