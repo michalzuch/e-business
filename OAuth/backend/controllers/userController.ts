@@ -3,14 +3,18 @@ import { users, addUser, findUserByEmail } from '../services/userService'
 import { Response as ExpressResponse } from 'express'
 import LoginRequest from '../models/LoginRequest'
 import RegisterRequest from '../models/RegisterRequest'
+import * as dotenv from 'dotenv'
+import { compare } from 'bcrypt'
+
+dotenv.config()
 
 const secretKey: string = process.env.SECRET_KEY || ''
 
-function login(req: LoginRequest, res: ExpressResponse<any>) {
+async function login(req: LoginRequest, res: ExpressResponse<any>) {
   const { email, password } = req.body
-  const user = findUserByEmail(email)
+  const user = await findUserByEmail(email)
 
-  if (user && user.password === password) {
+  if (user && (await compare(password, user.password))) {
     const token = jwt.sign({ userId: user.id }, secretKey)
     res.status(200).json({ token })
   } else {
@@ -18,14 +22,22 @@ function login(req: LoginRequest, res: ExpressResponse<any>) {
   }
 }
 
-function register(req: RegisterRequest, res: ExpressResponse<any>) {
-  const { name, email, password } = req.body
-  const user = findUserByEmail(email)
+async function register(req: RegisterRequest, res: ExpressResponse<any>) {
+  const { username, email, password } = req.body
+  const user = await findUserByEmail(email)
 
   if (user) {
     res.status(409).json({ message: 'Email is already used' })
   } else {
-    const newUser = { id: users.length + 1, name, email, password }
+    const newUser = {
+      id: users.length + 1,
+      username: username,
+      email: email,
+      password: password,
+      token: '',
+      accessToken: '',
+      isOAuth: false,
+    }
     addUser(newUser)
     res.status(200).json({})
   }

@@ -1,8 +1,11 @@
 interface User {
   id: number
-  name: string
+  username: string
   email: string
   password: string
+  token: string
+  accessToken: any
+  isOAuth: boolean
 }
 
 export default User

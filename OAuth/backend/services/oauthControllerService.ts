@@ -3,6 +3,7 @@ import { AuthorizationCode, AuthorizationTokenConfig } from 'simple-oauth2'
 import { Request as ExpressRequest, Response as ExpressResponse } from 'express'
 import * as jwt from 'jsonwebtoken'
 import * as dotenv from 'dotenv'
+import { addUser, users } from './userService'
 
 dotenv.config()
 const secretKey: string = process.env.SECRET_KEY || ''
@@ -43,6 +44,17 @@ async function oauthLoginCallback(
       })
 
     const token = jwt.sign(user.id, secretKey)
+    const newUser = {
+      id: users.length + 1,
+      username: '',
+      email: user.email,
+      password: '',
+      token: token,
+      accessToken: accessToken.token.access_token,
+      isOAuth: true,
+    }
+    await addUser(newUser)
+
     return res.cookie('token', token).redirect('http://localhost:5173')
   } catch (error) {
     return res.json(`${oauthProvider} OAuth failed`).status(500)

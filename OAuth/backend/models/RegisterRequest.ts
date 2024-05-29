@@ -1,6 +1,6 @@
 interface RegisterRequest {
   body: {
-    name: string
+    username: string
     email: string
     password: string
   }
