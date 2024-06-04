@@ -125,3 +125,8 @@ Use GitHub Actions (or other CI solutions) and the Azure cloud (or other clouds)
 ❌ 4.0 Add e-mail notification about the application being built  
 ❌ 4.5 Add a step with deploying the server and client applications to the cloud  
 ❌ 5.0 Add running automatic (functional) regression tests as a step in Actions
+
+Frontend: https://cloud-ci-frontend.azurewebsites.net/
+Backend: https://cloud-ci-backend.azurewebsites.net/
+
+https://github.com/michalzuch/e-business/assets/51276321/e72c29d1-cc4b-4853-aa65-78185e1b3847
