@@ -103,3 +103,25 @@ Communication model: React - Server - Supplier - Server (via return uri) - React
 ✅ 4.0 Login via Google OAuth2 | [Commit](https://github.com/michalzuch/e-business/commit/ea0d220875eabb0a9bd574a6647682c4d4803fc0)  
 ✅ 4.5 Login via Facebook / Github OAuth2 | [Commit](https://github.com/michalzuch/e-business/commit/f1e484d8455d37ad9e6f2855842a1f3e1256b4d6)  
 ✅ 5.0 Save OAuth2 credentials on the server side | [Commit](https://github.com/michalzuch/e-business/commit/e8d123c1f8cbb3998734afb6204681c1bc1299f3)
+
+---
+
+## [ChatGPT Bot](https://github.com/michalzuch/e-business/tree/main/ChatGPT%20Bot)
+
+✅ 3.0 Create a service to connect GPT | [Commit](https://github.com/michalzuch/e-business/commit/5994e7ffad191de4e43366a30374f79d63d9e08e)  
+✅ 3.5 Create an interface for the user | [Commit](https://github.com/michalzuch/e-business/commit/5994e7ffad191de4e43366a30374f79d63d9e08e)  
+❌ 4.0 Create a list of five different openings and closings for the conversation  
+❌ 4.5 Filter by questions related to the store  
+❌ 4.5 Filter responses by sentiment
+
+---
+
+## [Cloud / CI](https://github.com/michalzuch/e-business/tree/main/Cloud%20CI)
+
+Use GitHub Actions (or other CI solutions) and the Azure cloud (or other clouds) to build and deploy a client application (frontend) and a server application (backend) as separate applications. Utilize Docker images and containers to run the applications. You can build the application in advance (as a JAR package) or build it through GitHub Actions. Consider the available cloud resources when deploying the applications.
+
+✅ 3.0 Created Docker instances on the cloud | [Commit](https://github.com/michalzuch/e-business/commit/b5cb03da86d32ff9705fa827bb8c42356e75cfb0)  
+❌ 3.5 Setup Github Actions for building applications (e.g. via fatjar)  
+❌ 4.0 Add e-mail notification about the application being built  
+❌ 4.5 Add a step with deploying the server and client applications to the cloud  
+❌ 5.0 Add running automatic (functional) regression tests as a step in Actions
