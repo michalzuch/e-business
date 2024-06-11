@@ -104,6 +104,8 @@ Communication model: React - Server - Supplier - Server (via return uri) - React
 ✅ 4.5 Login via Facebook / Github OAuth2 | [Commit](https://github.com/michalzuch/e-business/commit/f1e484d8455d37ad9e6f2855842a1f3e1256b4d6)  
 ✅ 5.0 Save OAuth2 credentials on the server side | [Commit](https://github.com/michalzuch/e-business/commit/e8d123c1f8cbb3998734afb6204681c1bc1299f3)
 
+https://github.com/michalzuch/e-business/assets/51276321/2556e344-0cb0-43bb-941a-e31149908822
+
 ---
 
 ## [ChatGPT Bot](https://github.com/michalzuch/e-business/tree/main/ChatGPT%20Bot)
